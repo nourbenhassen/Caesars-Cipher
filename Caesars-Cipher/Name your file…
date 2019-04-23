@@ -1,0 +1,43 @@
+function rot13(str) { // LBH QVQ VG!
+  
+  let letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+let arrStr = str.split(" ");
+
+
+let arrStrCaes=[];
+let letter = "";
+let word="";
+let indexNb = 0;
+
+for (let i=0; i<arrStr.length; i++) {
+    
+    for (let j=0; j<arrStr[i].length; j++) {
+
+console.log(letters.indexOf("A"));
+//console.log(letters.indexOf(arrStr[i][j]));
+
+if (arrStr[i][j].match(/[A-Z]/)) {
+
+                  if (letters.indexOf(arrStr[i][j]) + 13 > 25)  {indexNb = 13 - (26 - letters.indexOf(arrStr[i][j]));}
+
+                  else indexNb = letters.indexOf(arrStr[i][j]) + 13;
+
+                        //console.log(indexNb);
+
+        letter = letters[indexNb];
+}
+
+else letter=arrStr[i][j];
+       // console.log(letter);
+
+
+        word+=letter;
+    }
+    arrStrCaes.push(word);
+    word="";
+
+}
+
+  return arrStrCaes.join(" ");
+}
